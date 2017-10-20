@@ -106,4 +106,37 @@ public class PostModel extends BaseModel<PostPresenter> {
         });
 
     }
+
+    public void getBannerInfo2() {
+
+        HttpClient httpClient = new HttpClient();
+        Observable<NewBannerInfo> observable1 = httpClient.getRectService().getBanner(4, "en");
+
+        observable1.subscribe(new Consumer<NewBannerInfo>() {
+            @Override
+            public void accept(NewBannerInfo newBannerInfo) throws Exception {
+
+            }
+        });
+
+    }
+
+    public void getBannerInfo3() {
+
+        HttpClient httpClient = new HttpClient();
+        Observable<NewBannerInfo> observable1 = httpClient.getRectService().getBanner(4, "en");
+
+        observable1.doOnNext(new Consumer<NewBannerInfo>() {
+            @Override
+            public void accept(NewBannerInfo newBannerInfo) throws Exception {
+
+            }
+        }).subscribe(new Consumer<NewBannerInfo>() {
+            @Override
+            public void accept(NewBannerInfo newBannerInfo) throws Exception {
+
+            }
+        });
+
+    }
 }
